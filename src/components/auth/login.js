@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import * as actions from '../../actions';
 
 class Login extends Component {
   handleFormSubmit({ email, password }) {
-    console.log(email, password);
+    alert('hi');
+    this.props.loginUser({ email: email, password: password });
   }
 
   render() {
     const { handleSubmit, fields: { email, password }} = this.props;
     
     return (
-      <form onSumbit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <label>Email</label>
           <input {...email} className="form-control" />
@@ -28,4 +30,4 @@ class Login extends Component {
 export default reduxForm({
   form: 'Login',
   fields: ['email', 'password']
-})(Login);
+}, null, actions)(Login);
