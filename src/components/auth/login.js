@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 class Login extends Component {
   handleFormSubmit({ email, password }) {
     alert('hi');
+    console.log(actions);
     this.props.loginUser({ email: email, password: password });
   }
 
@@ -26,6 +27,8 @@ class Login extends Component {
     );
   }
 }
+
+
 
 export default reduxForm({
   form: 'Login',
