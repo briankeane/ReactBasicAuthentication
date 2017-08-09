@@ -10,17 +10,14 @@ const ROOT_URL = 'http://localhost:3090';
 export function loginUser ({ email, password, history }) {
   return function (dispatch) {
     // submit email/password to server
-    axios.post(`${ROOT_URL}/login`, { email: email, password: password })
+    axios.post(`${ROOT_URL}/api/v1/users/login`, { email: email, password: password })
     .then(
       (response) => {
-      // if request is good, update state
-      dispatch({ type: AUTH_USER });
-
       // save JWT token
       localStorage.setItem('token', response.data.token);
-      
-      // redirect to route '/feature'
-      history.push('/feature');
+
+      // if request is good, update state
+      dispatch({ type: AUTH_USER });
     })
     .catch(
       (err) => {
@@ -51,7 +48,6 @@ export function signupUser({ email, password}) {
     .then(function (response) {
       dispatch({ type: AUTH_USER });
       localStorage.setItem('token', response.data.token);
-      history.push('/feature');
     })
     .catch(function (err) {
       dispatch(authErr(err.response.data.message))

@@ -38,7 +38,7 @@ class SignupForm extends Component {
             component={renderTextField}
             type="password"/>
 
-          <input type="submit" label="Sign Up" primary={true} labelColor={'#FFFFFF'}/>
+          <input type="submit" label="Sign Up" />
         </form>
       </div>
     )

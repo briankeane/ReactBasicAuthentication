@@ -6,7 +6,6 @@ export const renderTextField = ({input, type, label, meta: {touched, error}, ...
     <label>{label}</label>
     <input
       type={type}
-      floatingLabelText={label}
       {...input}
       {...custom}
     />

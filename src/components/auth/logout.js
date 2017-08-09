@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 
 class Logout extends Component {
   componentWillMount() {
-    this.props.signoutUser();
+    this.props.logoutUser();
   }
 
   render() {
@@ -14,9 +14,4 @@ class Logout extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    signoutUser: state.authentication
-  }
-}
-export default connect(mapStateToProps, actions)(Logout);
+export default connect(null, actions)(Logout);
